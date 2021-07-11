@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Sort Visualizer</title>
+</head>
+<body>
+<div id="menu">
+    <h1>Sort Visualizer</h1>
+
+    <div id="settings">
+    <button id="newArray" onclick="randomize()">Randomize Array</button>
+
+    <form class="dropdown">
+        <label>Sort Type:
+            <select id="sortType" class="dropdown-btn">
+                <option value="0">Bubble</option>
+                <option value="1">Selection</option>
+                <option value="2">Merge</option>
+            </select>
+        </label>
+    </form>
+
+    <script>
+        function updateSize(val) {
+            document.getElementById('displaySize').innerHTML = "Array Size: " + val;
+        }
+    </script>
+    <label id="displaySize" for="size">Array Size: 100</label>
+    <input type="range" min="50" max="200" value="100" class="slider" id="size" onchange="updateSize(this.value); newArray()">
+
+    <button id="sort" onclick="sort()">Sort</button>
+    </div>
+</div>
+
+<div id="array"></div>
+
+<script src="sort.js"></script>
+</body>
+</html>
