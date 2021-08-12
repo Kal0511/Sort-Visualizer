@@ -5,7 +5,14 @@ body{
     /*noinspection CssInvalidPropertyValue*/
     width: -webkit-fill-available;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main{
+    flex: 1;
 }
 
 h1{
@@ -16,28 +23,38 @@ h1{
 }
 
 #array{
-    height: calc(100% - 90px);
+    /*height: calc(100% - 90px);*/
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 1px;
+    height: 100%;
 }
 
 #menu{
-    background: palevioletred;
+    background: #383838;
+    color: #ff3b00;
 }
 
 #settings{
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    height: 20px;
+    /* height: 20px; */
+    flex-wrap: wrap;
+    gap: 2em;
+    flex: 1
 }
 
 .element{
-    display: flex;
-    background: linear-gradient(0deg, #009e9e, #de0000);
-    align-items: center;
-    transition: height 0.3s;
-    margin: 2px;
+    /*display: flex;*/
+    /*background: linear-gradient(0deg, #009e9e, #de0000);*/
+    background: cadetblue;
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
+    /*transition: height 0.3s;*/
+    margin: 1px;
+    width: 100%;
 }
 
 /* Dropdown Button */
@@ -81,3 +98,10 @@ h1{
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropdown-btn {background-color: #3e8e41;}
+
+btn{
+    background: gray;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+}

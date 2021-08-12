@@ -3,38 +3,43 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <title>Sort Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="menu">
-    <h1>Sort Visualizer</h1>
+<header>
 
-    <div id="settings">
-    <button id="newArray" onclick="randomize()">Randomize Array</button>
+    <div id="menu">
+        <h1>Sort Visualizer</h1>
 
-    <form class="dropdown">
-        <label>Sort Type:
-            <select id="sortType" class="dropdown-btn">
-                <option value="0">Bubble</option>
-                <option value="1">Selection</option>
-                <option value="2">Merge</option>
-            </select>
-        </label>
-    </form>
+        <div id="settings">
+            <button id="newArray" onclick="randomize()">Randomize Array</button>
 
-    <script>
-        function updateSize(val) {
-            document.getElementById('displaySize').innerHTML = "Array Size: " + val;
-        }
-    </script>
-    <label id="displaySize" for="size">Array Size: 100</label>
-    <input type="range" min="50" max="200" value="100" class="slider" id="size" onchange="updateSize(this.value); newArray()">
+            <form class="dropdown">
+                <label>Sort Type:
+                    <select id="sortType" class="dropdown-btn">
+                        <option value="0">Bubble</option>
+                        <option value="1">Selection</option>
+                        <option value="2">Merge</option>
+                    </select>
+                </label>
+            </form>
 
-    <button id="sort" onclick="sort()">Sort</button>
+            <label id="displaySize" for="size">Array Size: 100</label>
+            <input type="range" min="50" max="200" value="100" class="slider" id="size"
+                   onchange="updateSize(this.value); newArray()">
+
+            <button id="sort" onclick="sort()">Sort</button>
+        </div>
     </div>
-</div>
-
+</header>
+<main>
 <div id="array"></div>
-
+</main>
+<footer>
+    <p>Made By Kaumil P</p>
+</footer>
 <script src="sort.js"></script>
 </body>
 </html>

@@ -2,22 +2,30 @@ let array = [];
 
 newArray();
 
+function updateSize(val) {
+    document.getElementById('displaySize').innerHTML = "Array Size: " + val;
+}
+
 function newArray() {
     let size = parseInt(document.getElementById('size').value);
     if(size<array.length){
     document.getElementById('array').innerHTML = "";
     array = [];
     for (let i = 0; i < size; i++) {
-        array.push(Math.random() * 100)
-        document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100% / " + size + ")'></div>";
+        // array.push(Math.random() * 100)
+        array.push(100*i/size);
+        // document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100% / " + size + ")'></div>";
+        document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%;'></div>";
     }
     }else{
         for (let i = 0; i < array.length; i++) {
-            document.getElementById(i).style.width = "calc(100.0% /"  + size + ")";
+            document.getElementById(i).style.height = "calc("  + 100*i/size + "%)";
         }
         for (let i = array.length; i < size; i++) {
-            array.push(Math.random() * 100)
-            document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100.0% / " + size + ")'></div>";
+            //array.push(Math.random() * 100)
+            array.push(100*i/size);
+            // document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100.0% / " + size + ")'></div>";
+            document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%;'></div>";
         }
     }
 }
