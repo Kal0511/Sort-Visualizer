@@ -62,8 +62,7 @@ async function bubble() {
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array.length - i; j++) {
             if (array[j - 1] > array[j]) {
-                swap(j - 1, j);
-                await sleep(10)
+                await swap(j - 1, j);
             }
         }
     }
@@ -78,8 +77,7 @@ async function selection() {
                 max = j;
             }
         }
-        swap(max, j - 1);
-        await sleep(10)
+        await swap(max, j - 1);
     }
 }
 
@@ -156,12 +154,17 @@ async function merge(arr, l, m, r)
     }
 }
 
-function swap(i, j) {
+async function swap(i, j) {
+    document.getElementById(i).style.background = "red";
+    document.getElementById(j).style.background = "green";
+    await sleep(10)
     document.getElementById(i).style.height = array[j] + "%";
     document.getElementById(j).style.height = array[i] + "%";
     let temp = array[i];
     array[i] = array[j];
     array[j] = temp;
+    document.getElementById(i).style.background = "cadetblue";
+    document.getElementById(j).style.background = "cadetblue";
 }
 
 function set(i, val) {
