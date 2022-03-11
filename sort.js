@@ -163,8 +163,8 @@ async function swap(i, j) {
     let temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-    document.getElementById(i).style.background = "cadetblue";
-    document.getElementById(j).style.background = "cadetblue";
+    document.getElementById(i).style.background = "var(--bar)";
+    document.getElementById(j).style.background = "var(--bar)";
 }
 
 function set(i, val) {

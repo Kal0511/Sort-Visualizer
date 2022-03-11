@@ -2,44 +2,40 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="styles.css">
+    <script src="sort.js" defer></script>
     <title>Sort Visualizer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
-
     <div id="menu">
         <h1>Sort Visualizer</h1>
-
         <div id="settings">
-            <button id="newArray" onclick="randomize()">Randomize Array</button>
-
+            <button class="btn" id="newArray" onclick="randomize()">Randomize Array</button>
             <form class="dropdown">
                 <label>Sort Type:
-                    <select id="sortType" class="dropdown-btn">
+                    <select id="sortType" class="dropdown-btn btn">
                         <option value="0">Bubble</option>
                         <option value="1">Selection</option>
                         <option value="2">Merge</option>
                     </select>
                 </label>
             </form>
-
-            <label id="displaySize" for="size">Array Size: 100</label>
-            <input type="range" min="50" max="200" value="100" class="slider" id="size"
-                   onchange="updateSize(this.value); newArray()">
-
-            <button id="sort" onclick="sort()">Sort</button>
+            <div class="size">
+                <label id="displaySize" for="size">Array Size: 100</label>
+                <input type="range" min="50" max="200" value="100" class="slider" id="size" onchange="updateSize(this.value); newArray()">
+            </div>
+            <button class="btn" id="sort" onclick="sort()">Sort</button>
         </div>
     </div>
 </header>
 <main>
-<div id="array"></div>
+    <div id="array"></div>
 </main>
-<footer>
-    <p>Made By Kaumil P</p>
-</footer>
-<script src="sort.js"></script>
+<!--<footer>-->
+<!--    <p>Made By Kaumil P</p>-->
+<!--</footer>-->
 </body>
 </html>
