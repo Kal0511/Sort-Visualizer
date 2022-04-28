@@ -8,22 +8,22 @@ function updateSize(val) {
 
 function newArray() {
     let size = parseInt(document.getElementById('size').value);
-    if(size<array.length){
-    document.getElementById('array').innerHTML = "";
-    array = [];
-    for (let i = 0; i < size; i++) {
-        // array.push(Math.random() * 100)
-        array.push(100*i/size);
-        // document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100% / " + size + ")'></div>";
-        document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%;'></div>";
-    }
-    }else{
+    if (size < array.length) {
+        document.getElementById('array').innerHTML = "";
+        array = [];
+        for (let i = 0; i < size; i++) {
+            // array.push(Math.random() * 100)
+            array.push(100 * i / size);
+            // document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100% / " + size + ")'></div>";
+            document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%;'></div>";
+        }
+    } else {
         for (let i = 0; i < array.length; i++) {
-            document.getElementById(i).style.height = "calc("  + 100*i/size + "%)";
+            document.getElementById(i).style.height = "calc(" + 100 * i / size + "%)";
         }
         for (let i = array.length; i < size; i++) {
             //array.push(Math.random() * 100)
-            array.push(100*i/size);
+            array.push(100 * i / size);
             // document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%; width: calc(100.0% / " + size + ")'></div>";
             document.getElementById('array').innerHTML += "<div id='" + i + "' class='element' style='height:" + array[i] + "%;'></div>";
         }
@@ -32,7 +32,7 @@ function newArray() {
 
 function randomize() {
     for (let i = 0; i < array.length; i++) {
-        swap(Math.floor(Math.random() * array.length),Math.floor(Math.random() * array.length));
+        swap(Math.floor(Math.random() * array.length), Math.floor(Math.random() * array.length));
     }
 }
 
@@ -49,7 +49,7 @@ async function sort() {
             await selection();
             break
         case 2:
-            await mergeSort(0, array.length-1);
+            await mergeSort(0, array.length - 1);
             break
     }
     document.getElementById("sort").disabled = false;
@@ -82,39 +82,31 @@ async function selection() {
 }
 
 async function mergeSort(low, high) {
-    if(low >= high) {
+    if (low >= high) {
         return
     }
-    let mid =Math.floor((high-low)/2) + low;
+    let mid = Math.floor((high - low) / 2) + low;
     await mergeSort(low, mid)
     await mergeSort(mid + 1, high)
-    await merge(array, low , mid , high)
+    await merge(array, low, mid, high)
 }
 
-async function merge(arr, l, m, r)
-{
+async function merge(arr, l, m, r) {
     let n1 = m - l + 1;
     let n2 = r - m;
 
-    // Create temp arrays
     let L = new Array(n1);
     let R = new Array(n2);
 
-    // Copy data to temp arrays L[] and R[]
     for (let i = 0; i < n1; i++)
         L[i] = arr[l + i];
     for (let j = 0; j < n2; j++)
         R[j] = arr[m + 1 + j];
 
-    // Merge the temp arrays back into arr[l..r]
-
-    // Initial index of first subarray
     let i = 0;
 
-    // Initial index of second subarray
     let j = 0;
 
-    // Initial index of merged subarray
     let k = l;
 
     while (i < n1 && j < n2) {
@@ -123,8 +115,7 @@ async function merge(arr, l, m, r)
             await sleep(10)
             arr[k] = L[i];
             i++;
-        }
-        else {
+        } else {
             document.getElementById(k).style.height = R[j] + "%";
             await sleep(10)
             arr[k] = R[j];
@@ -133,8 +124,6 @@ async function merge(arr, l, m, r)
         k++;
     }
 
-    // Copy the remaining elements of
-    // L[], if there are any
     while (i < n1) {
         document.getElementById(k).style.height = L[i] + "%";
         await sleep(10)
@@ -143,8 +132,6 @@ async function merge(arr, l, m, r)
         k++;
     }
 
-    // Copy the remaining elements of
-    // R[], if there are any
     while (j < n2) {
         document.getElementById(k).style.height = R[j] + "%";
         await sleep(10)
